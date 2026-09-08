@@ -1,0 +1,18 @@
+py -3.13 -m venv .venv
+
+.venv\Scripts\Activate.ps1
+
+pip install --upgrade pip
+pip install -r requirements.txt
+pip install -e .
+
+python -m pdi_lab --operation brightness --input images/input/m1_gray_scene_256.png --output images/output/brightness_pos30.png --value 30
+python -m pdi_lab --operation brightness --input images/input/m1_gray_scene_256.png --output images/output/brightness_neg30.png --value -30
+python -m pdi_lab --operation contrast --input images/input/m1_gray_scene_256.png --output images/output/contrast_05.png --alpha 0.5
+python -m pdi_lab --operation contrast --input images/input/m1_gray_scene_256.png --output images/output/contrast_10.png --alpha 1.0
+python -m pdi_lab --operation contrast --input images/input/m1_gray_scene_256.png --output images/output/contrast_15.png --alpha 1.5
+python -m pdi_lab --operation negative --input images/input/m1_gray_scene_256.png --output images/output/negative.png
+python -m pdi_lab --operation threshold --input images/input/m1_gray_scene_256.png --output images/output/threshold_100.png --threshold 100
+python -m pdi_lab --operation threshold --input images/input/m1_gray_scene_256.png --output images/output/threshold_180.png --threshold 180
+python -m pdi_lab --operation histogram --input images/input/m1_gray_scene_256.png --output results/histogram_original.png.csv
+python -m pdi_lab --operation histogram --input images/output/brightness_pos30.png --output results/histogram_brightness_pos30.csv

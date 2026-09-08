@@ -1,0 +1,19 @@
+{
+  "width": "2",
+  "height": "2",
+  "channels": "3",
+  "pixels": "4",
+  "type": "uint8",
+  "min": "0",
+  "max": "255",
+  "mean": "127.5000",
+  "channel_b_min": "0",
+  "channel_b_max": "255",
+  "channel_b_mean": "127.5000",
+  "channel_g_min": "0",
+  "channel_g_max": "255",
+  "channel_g_mean": "127.5000",
+  "channel_r_min": "0",
+  "channel_r_max": "255",
+  "channel_r_mean": "127.5000"
+}

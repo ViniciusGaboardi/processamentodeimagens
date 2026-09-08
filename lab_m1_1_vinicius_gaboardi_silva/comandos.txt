@@ -1,0 +1,23 @@
+py -3.13 -m venv .venv
+
+.venv\Scripts\Activate.ps1
+
+pip install --upgrade pip
+pip install -r requirements.txt
+pip install -e .
+
+python -m pdi_lab --operation inspect --input images/input/m1_gray_5x5.png
+python -m pdi_lab --operation inspect --input images/input/m1_color_2x2.png
+python -m pdi_lab --operation inspect --input images/input/m1_gray_scene_256.png --output results/inspect_scene.json
+python -m pdi_lab --operation copy --input images/input/m1_gray_scene_256.png --output images/output/copy.png
+python -m pdi_lab --operation copy --input images/input/m1_gray_5x5.png --output images/output/copy_5x5.png
+python -m pdi_lab --operation channel_b --input images/input/m1_color_2x2.png --output images/output/channel_b.png
+python -m pdi_lab --operation channel_g --input images/input/m1_color_2x2.png --output images/output/channel_g.png
+python -m pdi_lab --operation channel_r --input images/input/m1_color_2x2.png --output images/output/channel_r.png
+python -m pdi_lab --operation grayscale_average --input images/input/m1_color_2x2.png --output images/output/gray_average.png
+python -m pdi_lab --operation grayscale_weighted --input images/input/m1_color_2x2.png --output images/output/gray_weighted.png
+python -m pdi_lab --operation quantize --input images/input/m1_gray_scene_256.png --output images/output/quant_16.png --levels 16
+python -m pdi_lab --operation quantize --input images/input/m1_gray_scene_256.png --output images/output/quant_8.png --levels 8
+python -m pdi_lab --operation quantize --input images/input/m1_gray_scene_256.png --output images/output/quant_4.png --levels 4
+python -m pdi_lab --operation quantize --input images/input/m1_gray_scene_256.png --output images/output/quant_2.png --levels 2
+python -c "import cv2; print(cv2.imread('images/output/quant_2.png', cv2.IMREAD_UNCHANGED))"

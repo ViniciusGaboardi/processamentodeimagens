@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "lab": "m1.x",
+  "language": "python",
+  "student": {
+    "name": "Vinicius Gaboardi Silva",
+    "registration": "PREENCHER"
+  },
+  "contract_version": 2,
+  "project_base_version": "0.2.0"
+}
